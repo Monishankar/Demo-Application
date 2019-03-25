@@ -1,0 +1,10 @@
+<h3>Task details</h3>
+
+<adf-task-details
+  [taskId]="taskId"
+  (formContentClicked)="onContentClick($event)" #taskList>
+</adf-task-details>
+
+<adf-pagination [target]="taskList"></adf-pagination>
+
+<button mat-raised-button (click)="goBack()"> back</button>

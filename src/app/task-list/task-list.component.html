@@ -1,0 +1,41 @@
+<h3>Tasks</h3>
+
+<a *ngIf="appId" md-button href="" routerLink="/apps/{{appId}}/start-process">
+  Start new process
+</a>
+
+<adf-tasklist #taskList data-automation-id="tasklist-table"
+  [appId]="appId"
+  [state]="open"
+  [assignment]="assignee"
+  (rowClick)="onRowClick($event)">
+  <data-columns>
+    <data-column key="name" type="text" [sortable]="false" title="ADF_TASK_LIST.PROPERTIES.NAME" class="desktop-only adf-data-table-cell--ellipsis">
+        <ng-template let-entry="$implicit">
+            {{entry.row.obj.name}}
+        </ng-template>
+    </data-column>
+
+  <data-column key="created" type="text" [sortable]="false" title="ADF_TASK_LIST.PROPERTIES.CREATED" class="desktop-only adf-data-table-cell--ellipsis">
+      <ng-template let-entry="$implicit">
+          <div title="{{entry.row.obj.created}}">{{entry.row.obj.created}}</div>
+      </ng-template>
+  </data-column>
+
+    <data-column key="assignee" type="text" [sortable]="false" title="ADF_TASK_LIST.PROPERTIES.ASSIGNEE" class="desktop-only adf-data-table-cell--ellipsis">
+        <ng-template let-entry="$implicit">
+            <div title="{{entry.row.obj.assignee | fullName}}">{{entry.row.obj.assignee | fullName}}</div>
+        </ng-template>
+    </data-column>
+
+    <data-column key="assignee" type="text" [sortable]="false" title="Email" class="desktop-only adf-data-table-cell--ellipsis">
+      <ng-template let-entry="$implicit">
+          <div title="{{entry.row.obj.assignee.email }}">{{entry.row.obj.assignee.email}}</div>
+      </ng-template>
+  </data-column>
+
+
+    </data-columns>
+
+</adf-tasklist>
+<button mat-raised-button (click)="goBack()"> back</button>

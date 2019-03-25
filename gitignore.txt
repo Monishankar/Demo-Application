@@ -1,0 +1,19 @@
+typings/
+node_modules/
+bower_components/
+src/app/**/*.js
+src/app/shared/**/**/*.js
+src/app/**/*.js.map
+src/assets/*.css
+!app/js/Polyline.js
+.idea
+versions.json
+npm-debug.log
+.npmrc
+dist/
+coverage/
+
+# docker files
+docker-compose.yml
+Dockerfile
+/package-lock.json

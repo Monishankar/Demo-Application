@@ -1,0 +1,9 @@
+<div>Process List</div>
+<adf-process-instance-list 
+[appId]="appId" 
+[state]="'all'"
+(rowClick)="onRowClick($event)" #processList>
+
+</adf-process-instance-list>
+<button mat-raised-button (click)="goBack()"> back</button>
+<adf-pagination [target]="processList"></adf-pagination>
